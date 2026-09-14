@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: corta-ai
+    runtime: docker
+    plan: starter
+    healthCheckPath: /
+    envVars:
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: WHISPER_MODEL
+        value: tiny
+    disk:
+      name: corta-ai-data
+      mountPath: /app
+      sizeGB: 10

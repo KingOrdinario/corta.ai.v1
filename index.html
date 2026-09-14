@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corta.ai — Seu vídeo. Vários cortes.</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top"><div class="brand"><span></span>corta.ai</div><div class="pill">V1 • sem login</div></header>
+<main>
+<section class="hero">
+<img src="/corta-ai-logo.png" alt="Corta.ai" class="logo">
+<h1>Seu vídeo. <b>Vários cortes.</b></h1>
+<p>Envie um vídeo ou cole um link do YouTube. O Corta.ai transcreve, encontra momentos fortes e cria cortes verticais prontos para publicar.</p>
+</section>
+<section class="card">
+<div class="tabs"><button class="tab active" data-tab="file">📁 Enviar vídeo</button><button class="tab" data-tab="youtube">🔗 YouTube</button></div>
+<form id="form">
+<div class="body">
+<div id="filePanel">
+<label class="drop" id="drop"><input type="file" id="video" name="video" accept="video/*"><div class="big">✂️</div><strong>Escolha seu vídeo</strong><small>Toque para selecionar um arquivo</small><em id="fileName">Nenhum arquivo selecionado</em></label>
+</div>
+<div id="youtubePanel" class="hidden">
+<label>LINK DO YOUTUBE</label><input id="youtubeUrl" name="youtube_url" placeholder="https://www.youtube.com/watch?v=..." type="url">
+<p class="help">Use vídeos que você tem direito de baixar e processar.</p>
+</div>
+<div class="grid">
+<div><label>CORTES</label><select name="count"><option>3</option><option selected>5</option><option>10</option></select></div>
+<div><label>DURAÇÃO</label><select name="duration"><option value="30">30s</option><option value="45">45s</option><option selected value="60">60s</option><option value="90">90s</option></select></div>
+<div><label>FORMATO</label><select name="aspect"><option selected value="9:16">9:16 Vertical</option><option value="1:1">1:1 Quadrado</option><option value="16:9">16:9 Horizontal</option></select></div>
+<div><label>LEGENDAS</label><label class="switch"><input type="checkbox" name="subtitles" checked><span></span> Automáticas</label></div>
+</div>
+<button class="go" id="go">🔥 GERAR CORTES</button>
+<p class="fine">Processamento com Whisper local + análise NLP + FFmpeg. Nenhuma API de IA é obrigatória.</p>
+</div>
+<div id="progress" class="progress hidden"><strong id="status">Preparando...</strong><div class="bar"><i id="bar"></i></div><small id="pct">0%</small></div>
+</form>
+</section>
+<section id="results" class="results hidden"><div class="resultHead"><h2>🔥 Seus cortes</h2><button id="again" class="outline">Novo vídeo</button></div><div id="clips" class="clips"></div></section>
+</main>
+<footer>Corta.ai • processamento automático de vídeo</footer>
+<script src="/app.js"></script>
+</body></html>
