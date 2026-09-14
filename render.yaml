@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: corta-ai
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: WHISPER_MODEL
+        value: tiny
